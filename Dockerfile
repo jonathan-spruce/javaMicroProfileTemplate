@@ -8,5 +8,5 @@ COPY /src/main/liberty/config/jvmbx.options /config/jvm.options
 # Liberty document reference : https://hub.docker.com/_/websphere-liberty/
 USER root
 RUN chmod g+w /config/apps
-USER 1001
 RUN configure.sh
+USER 1001
