@@ -2,10 +2,6 @@ ENV JAVA_VERSION_PREFIX 1.8.0
 ENV HOME /home/default
 
 USER root
-RUN apt update
-RUN apt install -y wget unzip
-RUN rm -rf /var/lib/apt/lists
-USER 1001
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
@@ -59,6 +55,8 @@ RUN set -eux; \
     apt-get purge --auto-remove -y unzip; \
     apt-get purge --auto-remove -y wget; \
     rm -rf /var/lib/apt/lists/*;
+
+USER 1001
 
 RUN mkdir -m 777 -p /config/resources
 
